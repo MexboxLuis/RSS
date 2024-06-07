@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, Text, TouchableOpacity, View } from 'react-native
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentFeed, fetchFeeds } from '../store/feedSlice';
 import { useNavigation } from '@react-navigation/native';
-import {FeedDetails} from './FeedDetails';
+import { FeedDetails } from './FeedDetails';
 
 
 const FeedList = () => {
@@ -12,10 +12,10 @@ const FeedList = () => {
   const { feeds, loading, error } = useSelector((state) => state.feed);
 
   useEffect(() => {
-    dispatch(fetchFeeds('https://feeds.bbci.co.uk/news/rss.xml'));
+    dispatch(fetchFeeds('https://www.inegi.org.mx/rss/noticias/xmlfeeds?p=2,1'));
   }, [dispatch]);
 
-  if (loading) return <Text>Cargando...</Text>;
+  if (loading) return <Text>Cargando sitio...</Text>;
   if (error) return <Text>Error: {error}</Text>;
 
   return (

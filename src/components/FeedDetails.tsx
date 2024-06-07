@@ -21,8 +21,12 @@ const FeedDetails = () => {
               navigation.navigate('ArticleView', { url: item.links[0].url });
             }}
           >
+
             <Text style={styles.articleTitle}>{item.title}</Text>
-            <Text>{item.contentSnippet}</Text>
+
+            <Text style={styles.articleSnippet}>{item.description}</Text>
+
+
           </TouchableOpacity>
         )}
       />
@@ -40,10 +44,22 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
   },
+
   articleTitle: {
     fontSize: 18,
+    color: 'black',
     fontWeight: 'bold',
+    textAlign: 'justify',
+
+  },
+  articleSnippet: {
+    fontSize: 14,
+    color: 'gray',
+    marginTop: 5,
+    textAlign: 'justify',
+    lineHeight: 16,
+    maxHeight: 50,
   },
 });
 
-export default FeedDetails; 
+export default FeedDetails;
